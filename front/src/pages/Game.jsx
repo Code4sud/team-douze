@@ -15,6 +15,7 @@ function Game() {
     const [background, setBackground] = useState(null);
     const [score, setScore] = useState(0);
     const [gold, setGold] = useState(0);
+    const [action, setAction] = useState(null)
     const [collectedObjects, setCollectedObjects] = useState([]);  // Ajout pour les objets collectés
 
     // Fonction de pause
@@ -106,6 +107,7 @@ function Game() {
     // Exécution de l'action de l'événement
     const ExecuteEventAction = (action) => {
         loadFeedback(action.is_succes);
+        setAction(action)
     };
 
     return (
@@ -138,7 +140,7 @@ function Game() {
                     {/* Bulle de pensée pour l'événement */}
                     <div className="col-span-3 row-start-3">
                         <div className="bulle-pensee">
-                            <h3 className="font-bold">{eventName && eventName}</h3>
+                            <h3 className="font-bold text-black-600">{eventName && eventName}</h3>
                             <div className="mini-bulle mini-bulle1"></div>
                             <div className="mini-bulle mini-bulle2"></div>
                             <div className="mini-bulle mini-bulle3"></div>
